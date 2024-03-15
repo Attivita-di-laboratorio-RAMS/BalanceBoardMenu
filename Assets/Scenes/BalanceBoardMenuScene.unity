@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 1029526574}
   - component: {fileID: 1029526573}
   m_Layer: 5
-  m_Name: Button
+  m_Name: TabButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
