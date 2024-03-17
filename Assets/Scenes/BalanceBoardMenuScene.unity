@@ -3003,6 +3003,7 @@ MonoBehaviour:
   playButton: {fileID: 1711408469}
   stopButton: {fileID: 537237712}
   homeButton: {fileID: 1612025084}
+  statusText: {fileID: 242365266}
 --- !u!1 &295344217
 GameObject:
   m_ObjectHideFlags: 0
@@ -7704,7 +7705,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1008335163}
   m_Direction: 2
   m_Value: 1.0000002
-  m_Size: 0.56532943
+  m_Size: 0.5653294
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
