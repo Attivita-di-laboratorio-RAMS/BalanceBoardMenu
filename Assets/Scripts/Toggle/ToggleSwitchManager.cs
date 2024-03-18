@@ -127,7 +127,7 @@ public class ToggleSwitchManager : MonoBehaviour, IPointerClickHandler{
           }//end-try
         }//end-try
       } //end-for
-    }   //end-for
+    }//end-for
   }
   /**********************************************************/
 }
