@@ -116,7 +116,6 @@ public class ToggleSwitchManager : MonoBehaviour, IPointerClickHandler{
   private void ToggleDefaultMovement(bool isDisabled){
     for(var i=0; i < _rectTransform.childCount; i=i + 1){
       for(var j=0; j < _rectTransform.GetChild(i).childCount; j=j + 1){
-        print(_rectTransform.GetChild(i).GetChild(j));
         try{
           _rectTransform.GetChild(i).GetChild(j).GetComponent<Toggle>().interactable=isDisabled;
         }catch(NullReferenceException){
