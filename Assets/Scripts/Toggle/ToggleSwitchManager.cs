@@ -114,13 +114,20 @@ public class ToggleSwitchManager : MonoBehaviour, IPointerClickHandler{
   }
 
   private void ToggleDefaultMovement(bool isDisabled){
+    bool isOn=false;
     for(var i=0; i < _rectTransform.childCount; i=i + 1){
       for(var j=0; j < _rectTransform.GetChild(i).childCount; j=j + 1){
         try{
           _rectTransform.GetChild(i).GetChild(j).GetComponent<Toggle>().interactable=isDisabled;
+          isOn=_rectTransform.GetChild(i).GetChild(j).GetComponent<Toggle>().isOn;
         }catch(NullReferenceException){
           try{
-            _rectTransform.GetChild(i).GetChild(j).GetComponent<TMP_InputField>().interactable=isDisabled;
+            //If the checkbox is not on, i don't need to change the inputField interactable status
+            if(isOn){
+              _rectTransform.GetChild(i).GetChild(j).GetComponent<TMP_InputField>().interactable=isDisabled;
+            }else{
+              _rectTransform.GetChild(i).GetChild(j).GetComponent<TMP_InputField>().interactable=false;
+            } //end-if
           }catch(NullReferenceException){
             //ignoring
           }//end-try
