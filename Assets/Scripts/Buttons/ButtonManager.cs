@@ -18,25 +18,25 @@ public class ButtonManager : MonoBehaviour{
 
       isPlaying=!isPlaying;
       print(isPlaying ? "Play" + " has been pressed" : "Pause" + " has been pressed");
-      
+
       //Eventual call to machine param=Machine.callPlay/Pause()
-      
+
       //Eventual change in state statustText.text=param
     });
 
     stopButton.onClick.AddListener(() => {
       print("Stop has been pressed");
-      
+
       //Eventual call to machine param=Machine.callStop()
-      
+
       //Eventual change in state statustText.text=param
     });
 
     homeButton.onClick.AddListener(() => {
       print("Home has been pressed");
-      
+
       //Eventual call to machine param=Machine.callHome()
-      
+
       //Eventual change in state statustText.text=param
     });
   }
