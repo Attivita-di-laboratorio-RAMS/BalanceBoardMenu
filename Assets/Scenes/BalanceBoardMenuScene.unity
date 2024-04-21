@@ -841,6 +841,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c59c065ef974d19ace712944552d58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameModeToggle: {fileID: 1277844863}
+  _activeAnglesCheckboxesList:
+  - {fileID: 21769166}
+  - {fileID: 1770334627}
+  - {fileID: 1236211398}
+  _activeAnglesInputFieldsList:
+  - {fileID: 17089262}
+  - {fileID: 569637688}
+  - {fileID: 1207472363}
+  _difficultySlider: {fileID: 1705104215}
+  _visualFeedbackDropdown: {fileID: 59543726}
+  _defaultMovementsCheckboxesList:
+  - {fileID: 1258408613}
+  - {fileID: 554526607}
+  - {fileID: 131782783}
+  _defaultMovementsAmpInputFieldsList:
+  - {fileID: 1744959009}
+  - {fileID: 1934412151}
+  - {fileID: 1007754162}
+  _defaultMovementsFreqInputFieldsList:
+  - {fileID: 1897096951}
+  - {fileID: 84570653}
+  - {fileID: 16562159}
 --- !u!1 &19941011
 GameObject:
   m_ObjectHideFlags: 0
@@ -14217,6 +14240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _exitButton: {fileID: 1096255749}
   _accountSettings: {fileID: 18946085}
+  usernameInputField: {fileID: 2113057444}
+  searchUsernameButton: {fileID: 1208628443}
 --- !u!1 &2015806899
 GameObject:
   m_ObjectHideFlags: 0

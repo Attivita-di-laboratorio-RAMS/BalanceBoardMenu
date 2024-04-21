@@ -2,16 +2,16 @@ namespace AccountSettings
 {
     public class ConcreteMemento : IMemento
     {
-        private AccountSettings _accountSettings;
+        private AccountSettingsSerializable _accountSettingsSerializable;
 
         public ConcreteMemento(AccountSettings _accountSettings)
         {
-            this._accountSettings = _accountSettings;
+            this._accountSettingsSerializable = new AccountSettingsSerializable(_accountSettings);
         }
 
-        public AccountSettings getAccountSettings()
+        public AccountSettingsSerializable getAccountSettings()
         {
-            return _accountSettings;
+            return _accountSettingsSerializable;
         }
     }
 }

@@ -1,0 +1,30 @@
+{
+    "_gameModeToggle": "0",
+    "_activeAnglesCheckboxesList": [
+        "True",
+        "True",
+        "True"
+    ],
+    "_activeAnglesInputFieldsList": [
+        "",
+        "",
+        ""
+    ],
+    "_difficultySlider": "0",
+    "_visualFeedbackDropdown": "0",
+    "_defaultMovementsCheckboxesList": [
+        "True",
+        "True",
+        "True"
+    ],
+    "_defaultMovementsAmpInputFieldsList": [
+        "",
+        "",
+        ""
+    ],
+    "_defaultMovementsFreqInputFieldsList": [
+        "",
+        "",
+        ""
+    ]
+}

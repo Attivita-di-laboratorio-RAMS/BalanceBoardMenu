@@ -2,6 +2,6 @@ namespace AccountSettings
 {
     public interface IMemento
     {
-        AccountSettings getAccountSettings();
+        AccountSettingsSerializable getAccountSettings();
     }
 }

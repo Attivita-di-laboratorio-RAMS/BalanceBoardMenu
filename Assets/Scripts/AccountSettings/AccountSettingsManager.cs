@@ -1,4 +1,5 @@
-using Newtonsoft.Json;
+using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ namespace AccountSettings
     {
         [SerializeField] private Button _exitButton;
         [SerializeField] private AccountSettings _accountSettings;
+        [SerializeField] private TMP_InputField usernameInputField;
+        [SerializeField] private Button searchUsernameButton;
+
         private AccountSettingsCaretaker _accountSettingsCaretaker;
 
         private void Awake()
@@ -16,14 +20,41 @@ namespace AccountSettings
             _exitButton.onClick.AddListener(() =>
             {
                 _accountSettingsCaretaker.Backup();
-                print(_accountSettingsCaretaker.GetLastMemento().getAccountSettings().ToString());
-                string json = JsonConvert.SerializeObject(
-                    _accountSettingsCaretaker.GetLastMemento().getAccountSettings(), Formatting.Indented,
-                    new JsonSerializerSettings
+
+                string json = JsonUtility.ToJson(_accountSettingsCaretaker.GetLastMemento().getAccountSettings(), true);
+                File.WriteAllText(@"Assets/UsernameSettings/" + usernameInputField.text + ".json", json);
+            });
+
+            searchUsernameButton.onClick.AddListener(() =>
+            {
+                //Ricerca username nel file system
+                int i = 0;
+                bool trovato = false;
+                while (!trovato && i < Directory.GetFiles(@"Assets/UsernameSettings/").Length)
+                {
+                    if (usernameInputField.text + ".json" ==
+                        Path.GetFileName(Directory.GetFiles(@"Assets/UsernameSettings/")[i]))
                     {
-                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                    });
-                print(json);
+                        trovato = true;
+                    } //end-if
+
+                    i += 1;
+                } //end-while
+
+                if (trovato)
+                {
+                    //conversione a gamesettings con settings specifiche
+                    JsonUtility.FromJson<AccountSettingsSerializable>(
+                            File.ReadAllText(@"Assets/UsernameSettings/" + usernameInputField.text + ".json"))
+                        .FillAccountSettings(_accountSettings);
+                }
+                else
+                {
+                    //conversione a gamesettings con settings di default
+                    JsonUtility.FromJson<AccountSettingsSerializable>(
+                            File.ReadAllText(@"Assets/UsernameSettings/default.json"))
+                        .FillAccountSettings(_accountSettings);
+                } //end-if
             });
         }
     }
