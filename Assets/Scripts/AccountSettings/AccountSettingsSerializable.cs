@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace AccountSettings
 {
@@ -33,23 +35,24 @@ namespace AccountSettings
             this._difficultySlider = _accountSettings.getDifficultySlider().value.ToString();
 
             this._visualFeedbackDropdown = _accountSettings.getVisualFeedbackDropdown().value.ToString();
-
+            
             for (int i = 0; i < _accountSettings.getDefaultMovementCheckboxesList().Count; i += 1)
             {
-                this._defaultMovementsCheckboxesList.Add(_accountSettings.getDefaultMovementCheckboxesList()[i].isOn
-                    .ToString());
-            }
+                _defaultMovementsCheckboxesList.Add(_accountSettings.getDefaultMovementCheckboxesList()[i].isOn.ToString());
+                _defaultMovementsCheckboxesList.Add(_accountSettings.getDefaultMovementCheckboxesList()[i].interactable.ToString());
+            }//end-for
 
             for (int i = 0; i < _accountSettings.getDefaultMovementAmpInputFieldsList().Count; i += 1)
             {
-                this._defaultMovementsAmpInputFieldsList.Add(_accountSettings.getDefaultMovementAmpInputFieldsList()[i]
-                    .text);
+                _defaultMovementsAmpInputFieldsList.Add(_accountSettings.getDefaultMovementAmpInputFieldsList()[i].text);
+                _defaultMovementsAmpInputFieldsList.Add(_accountSettings.getDefaultMovementAmpInputFieldsList()[i].interactable.ToString());
             }
 
             for (int i = 0; i < _accountSettings.getDefaultMovementFreqInputFieldsList().Count; i += 1)
             {
-                this._defaultMovementsFreqInputFieldsList.Add(
-                    _accountSettings.getDefaultMovementFreqInputFieldsList()[i].text);
+                _defaultMovementsFreqInputFieldsList.Add(_accountSettings.getDefaultMovementFreqInputFieldsList()[i].text);
+                _defaultMovementsFreqInputFieldsList.Add(_accountSettings.getDefaultMovementFreqInputFieldsList()[i].interactable.ToString());
+                
             }
         }
 
@@ -71,23 +74,23 @@ namespace AccountSettings
             accountSettings.getDifficultySlider().value = float.Parse(this._difficultySlider);
 
             accountSettings.getVisualFeedbackDropdown().value = int.Parse(this._visualFeedbackDropdown);
-
-            for (int i = 0; i < _defaultMovementsCheckboxesList.Count; i += 1)
+            
+            for (int i = 0; i < _defaultMovementsCheckboxesList.Count; i += 2)
             {
-                accountSettings.getDefaultMovementCheckboxesList()[i].isOn =
-                    Convert.ToBoolean(this._defaultMovementsCheckboxesList[i]);
+                accountSettings.getDefaultMovementCheckboxesList()[i/2].isOn=Convert.ToBoolean(_defaultMovementsCheckboxesList[i]);
+                accountSettings.getDefaultMovementCheckboxesList()[i/2].interactable=Convert.ToBoolean(_defaultMovementsCheckboxesList[i+1]);
             }
 
-            for (int i = 0; i < _defaultMovementsAmpInputFieldsList.Count; i += 1)
+            for (int i = 0; i < _defaultMovementsAmpInputFieldsList.Count; i += 2)
             {
-                accountSettings.getDefaultMovementAmpInputFieldsList()[i].text =
-                    _defaultMovementsAmpInputFieldsList[i];
+                accountSettings.getDefaultMovementAmpInputFieldsList()[i/2].text=_defaultMovementsAmpInputFieldsList[i];
+                accountSettings.getDefaultMovementAmpInputFieldsList()[i/2].interactable=Convert.ToBoolean(_defaultMovementsAmpInputFieldsList[i+1]);
             }
 
-            for (int i = 0; i < _defaultMovementsFreqInputFieldsList.Count; i += 1)
+            for (int i = 0; i < _defaultMovementsFreqInputFieldsList.Count; i += 2)
             {
-                accountSettings.getDefaultMovementFreqInputFieldsList()[i].text =
-                    _defaultMovementsFreqInputFieldsList[i];
+                accountSettings.getDefaultMovementFreqInputFieldsList()[i/2].text=_defaultMovementsFreqInputFieldsList[i];
+                accountSettings.getDefaultMovementFreqInputFieldsList()[i/2].interactable=Convert.ToBoolean(_defaultMovementsFreqInputFieldsList[i+1]);
             }
         }
     }

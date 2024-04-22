@@ -15,16 +15,25 @@
     "_defaultMovementsCheckboxesList": [
         "True",
         "True",
+        "True",
+        "True",
+        "True",
         "True"
     ],
     "_defaultMovementsAmpInputFieldsList": [
         "",
+        "True",
         "",
-        ""
+        "True",
+        "",
+        "True"
     ],
     "_defaultMovementsFreqInputFieldsList": [
         "",
+        "True",
         "",
-        ""
+        "True",
+        "",
+        "True"
     ]
 }
