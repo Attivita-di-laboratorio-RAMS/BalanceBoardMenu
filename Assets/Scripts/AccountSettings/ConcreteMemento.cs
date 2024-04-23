@@ -1,17 +1,25 @@
-namespace AccountSettings
-{
-    public class ConcreteMemento : IMemento
-    {
-        private AccountSettingsSerializable _accountSettingsSerializable;
-
-        public ConcreteMemento(AccountSettings _accountSettings)
-        {
-            this._accountSettingsSerializable = new AccountSettingsSerializable(_accountSettings);
-        }
-
-        public AccountSettingsSerializable getAccountSettings()
-        {
-            return _accountSettingsSerializable;
-        }
+namespace AccountSettings{
+  /******************************************************/
+  // CLASS ConcreteMemento IS A CONCRETE IMPLEMENTATION
+  // OF IMemento
+  /******************************************************/
+  public class ConcreteMemento : IMemento{
+    /***************************************/
+    //Attributes
+    /***************************************/
+    private AccountSettingsSerializable _accountSettingsSerializable;
+    /***************************************/
+    //Constructor
+    /***************************************/
+    public ConcreteMemento(AccountSettings accountSettings){
+      _accountSettingsSerializable=new AccountSettingsSerializable(accountSettings);
     }
+    /***************************************/
+    //Methods
+    /***************************************/
+    public AccountSettingsSerializable GetAccountSettings(){
+      return _accountSettingsSerializable;
+    }
+    /***************************************/
+  }
 }

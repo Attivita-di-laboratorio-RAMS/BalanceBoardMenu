@@ -1,0 +1,57 @@
+{
+    "gameModeToggle": "1",
+    "activeAnglesCheckboxesList": [
+        "True",
+        "False",
+        "False"
+    ],
+    "activeAnglesInputFieldsList": [
+        "1",
+        "2",
+        "4"
+    ],
+    "difficultySlider": "57.62218",
+    "visualFeedbackDropdown": "1",
+    "defaultMovementsCheckboxesList": [
+        {
+            "s1": "True",
+            "s2": "False"
+        },
+        {
+            "s1": "True",
+            "s2": "False"
+        },
+        {
+            "s1": "False",
+            "s2": "False"
+        }
+    ],
+    "defaultMovementsAmpInputFieldsList": [
+        {
+            "s1": "1",
+            "s2": "False"
+        },
+        {
+            "s1": "10",
+            "s2": "False"
+        },
+        {
+            "s1": "3",
+            "s2": "False"
+        }
+    ],
+    "defaultMovementsFreqInputFieldsList": [
+        {
+            "s1": "2",
+            "s2": "False"
+        },
+        {
+            "s1": "2",
+            "s2": "False"
+        },
+        {
+            "s1": "4",
+            "s2": "False"
+        }
+    ]
+}

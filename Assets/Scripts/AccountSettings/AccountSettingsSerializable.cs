@@ -1,97 +1,102 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+using System.Globalization;
 
-namespace AccountSettings
-{
+namespace AccountSettings{
+  /******************************************************/
+  // CLASS AccountSettingsSerializable IS A DUMMY CLASS
+  // USED ONLY TO SERIALIZE AccountSettings (ORIGINATOR)
+  /******************************************************/
+  [Serializable]
+  public class AccountSettingsSerializable{
+    /******************************************************/
+    // CLASS CustomString IS A NESTED DUMMY CLASS
+    // USED ONLY TO SERIALIZE FIELD WITH MULTIPLE STRINGS
+    /******************************************************/
     [Serializable]
-    public class AccountSettingsSerializable
-    {
-        public string _gameModeToggle;
-        public List<string> _activeAnglesCheckboxesList = new List<string>();
-        public List<string> _activeAnglesInputFieldsList = new List<string>();
-        public string _difficultySlider;
-        public string _visualFeedbackDropdown;
-        public List<string> _defaultMovementsCheckboxesList = new List<string>();
-        public List<string> _defaultMovementsAmpInputFieldsList = new List<string>();
-        public List<string> _defaultMovementsFreqInputFieldsList = new List<string>();
-
-        public AccountSettingsSerializable(AccountSettings _accountSettings)
-        {
-            this._gameModeToggle = _accountSettings.getGameModeToggle().value.ToString();
-
-            for (int i = 0; i < _accountSettings.getActiveAnglesCheckboxesList().Count; i += 1)
-            {
-                this._activeAnglesCheckboxesList.Add(
-                    _accountSettings.getActiveAnglesCheckboxesList()[i].isOn.ToString());
-            }
-
-            for (int i = 0; i < _accountSettings.getActiveAnglesInputFieldsList().Count; i += 1)
-            {
-                this._activeAnglesInputFieldsList.Add(_accountSettings.getActiveAnglesInputFieldsList()[i].text);
-            }
-
-            this._difficultySlider = _accountSettings.getDifficultySlider().value.ToString();
-
-            this._visualFeedbackDropdown = _accountSettings.getVisualFeedbackDropdown().value.ToString();
-            
-            for (int i = 0; i < _accountSettings.getDefaultMovementCheckboxesList().Count; i += 1)
-            {
-                _defaultMovementsCheckboxesList.Add(_accountSettings.getDefaultMovementCheckboxesList()[i].isOn.ToString());
-                _defaultMovementsCheckboxesList.Add(_accountSettings.getDefaultMovementCheckboxesList()[i].interactable.ToString());
-            }//end-for
-
-            for (int i = 0; i < _accountSettings.getDefaultMovementAmpInputFieldsList().Count; i += 1)
-            {
-                _defaultMovementsAmpInputFieldsList.Add(_accountSettings.getDefaultMovementAmpInputFieldsList()[i].text);
-                _defaultMovementsAmpInputFieldsList.Add(_accountSettings.getDefaultMovementAmpInputFieldsList()[i].interactable.ToString());
-            }
-
-            for (int i = 0; i < _accountSettings.getDefaultMovementFreqInputFieldsList().Count; i += 1)
-            {
-                _defaultMovementsFreqInputFieldsList.Add(_accountSettings.getDefaultMovementFreqInputFieldsList()[i].text);
-                _defaultMovementsFreqInputFieldsList.Add(_accountSettings.getDefaultMovementFreqInputFieldsList()[i].interactable.ToString());
-                
-            }
-        }
-
-        public void FillAccountSettings(AccountSettings accountSettings)
-        {
-            accountSettings.getGameModeToggle().value = float.Parse(_gameModeToggle);
-
-            for (int i = 0; i < _activeAnglesCheckboxesList.Count; i += 1)
-            {
-                accountSettings.getActiveAnglesCheckboxesList()[i].isOn =
-                    Convert.ToBoolean(this._activeAnglesCheckboxesList[i]);
-            }
-
-            for (int i = 0; i < _activeAnglesInputFieldsList.Count; i += 1)
-            {
-                accountSettings.getActiveAnglesInputFieldsList()[i].text = this._activeAnglesInputFieldsList[i];
-            }
-
-            accountSettings.getDifficultySlider().value = float.Parse(this._difficultySlider);
-
-            accountSettings.getVisualFeedbackDropdown().value = int.Parse(this._visualFeedbackDropdown);
-            
-            for (int i = 0; i < _defaultMovementsCheckboxesList.Count; i += 2)
-            {
-                accountSettings.getDefaultMovementCheckboxesList()[i/2].isOn=Convert.ToBoolean(_defaultMovementsCheckboxesList[i]);
-                accountSettings.getDefaultMovementCheckboxesList()[i/2].interactable=Convert.ToBoolean(_defaultMovementsCheckboxesList[i+1]);
-            }
-
-            for (int i = 0; i < _defaultMovementsAmpInputFieldsList.Count; i += 2)
-            {
-                accountSettings.getDefaultMovementAmpInputFieldsList()[i/2].text=_defaultMovementsAmpInputFieldsList[i];
-                accountSettings.getDefaultMovementAmpInputFieldsList()[i/2].interactable=Convert.ToBoolean(_defaultMovementsAmpInputFieldsList[i+1]);
-            }
-
-            for (int i = 0; i < _defaultMovementsFreqInputFieldsList.Count; i += 2)
-            {
-                accountSettings.getDefaultMovementFreqInputFieldsList()[i/2].text=_defaultMovementsFreqInputFieldsList[i];
-                accountSettings.getDefaultMovementFreqInputFieldsList()[i/2].interactable=Convert.ToBoolean(_defaultMovementsFreqInputFieldsList[i+1]);
-            }
-        }
+    public class CustomString{
+      /***************************************/
+      //Attributes
+      /***************************************/
+      public string s1;
+      public string s2;
+      /***************************************/
+      //Constructor
+      /***************************************/
+      public CustomString(string s1, string s2){
+        this.s1=s1;
+        this.s2=s2;
+      }
+      /***************************************/
     }
+    /***************************************/
+    //Attributes
+    /***************************************/
+    public string gameModeToggle;
+    public List<string> activeAnglesCheckboxesList=new();
+    public List<string> activeAnglesInputFieldsList=new();
+    public string difficultySlider;
+    public string visualFeedbackDropdown;
+    public List<CustomString> defaultMovementsCheckboxesList=new();
+    public List<CustomString> defaultMovementsAmpInputFieldsList=new();
+    public List<CustomString> defaultMovementsFreqInputFieldsList=new();
+    /***************************************/
+    //Constructor
+    /***************************************/
+    public AccountSettingsSerializable(AccountSettings accountSettings){
+      gameModeToggle=accountSettings.GetGameModeToggle().value.ToString(CultureInfo.InvariantCulture);
+
+      for(var i=0; i < accountSettings.GetActiveAnglesCheckboxesList().Count; i+=1)
+        activeAnglesCheckboxesList.Add(accountSettings.GetActiveAnglesCheckboxesList()[i].isOn.ToString());
+
+      for(var i=0; i < accountSettings.GetActiveAnglesInputFieldsList().Count; i+=1) activeAnglesInputFieldsList.Add(accountSettings.GetActiveAnglesInputFieldsList()[i].text);
+
+      difficultySlider=accountSettings.GetDifficultySlider().value.ToString(CultureInfo.InvariantCulture);
+
+      visualFeedbackDropdown=accountSettings.GetVisualFeedbackDropdown().value.ToString();
+
+      for(var i=0; i < accountSettings.GetDefaultMovementCheckboxesList().Count; i+=1){
+        defaultMovementsCheckboxesList.Add(new CustomString(accountSettings.GetDefaultMovementCheckboxesList()[i].isOn.ToString(), accountSettings.GetDefaultMovementCheckboxesList()[i].interactable.ToString()));
+      }//end-for
+
+      for(var i=0; i < accountSettings.GetDefaultMovementAmpInputFieldsList().Count; i+=1){
+        defaultMovementsAmpInputFieldsList.Add(new CustomString(accountSettings.GetDefaultMovementAmpInputFieldsList()[i].text, accountSettings.GetDefaultMovementAmpInputFieldsList()[i].interactable.ToString()));
+      }//end-for
+
+      for(var i=0; i < accountSettings.GetDefaultMovementFreqInputFieldsList().Count; i+=1){
+        defaultMovementsFreqInputFieldsList.Add(new CustomString(accountSettings.GetDefaultMovementFreqInputFieldsList()[i].text, accountSettings.GetDefaultMovementFreqInputFieldsList()[i].interactable.ToString()));
+      }//end-for
+    }
+    /***************************************/
+    //Methods
+    /***************************************/
+    public void FillAccountSettings(AccountSettings accountSettings){
+      accountSettings.GetGameModeToggle().value=float.Parse(gameModeToggle);
+
+      for(var i=0; i < activeAnglesCheckboxesList.Count; i+=1)
+        accountSettings.GetActiveAnglesCheckboxesList()[i].isOn=Convert.ToBoolean(activeAnglesCheckboxesList[i]);
+
+      for(var i=0; i < activeAnglesInputFieldsList.Count; i+=1) accountSettings.GetActiveAnglesInputFieldsList()[i].text=activeAnglesInputFieldsList[i];
+
+      accountSettings.GetDifficultySlider().value=float.Parse(difficultySlider);
+
+      accountSettings.GetVisualFeedbackDropdown().value=int.Parse(visualFeedbackDropdown);
+
+      for(var i=0; i < defaultMovementsCheckboxesList.Count; i+=1){
+        accountSettings.GetDefaultMovementCheckboxesList()[i].isOn=Convert.ToBoolean(defaultMovementsCheckboxesList[i].s1);
+        accountSettings.GetDefaultMovementCheckboxesList()[i].interactable=Convert.ToBoolean(defaultMovementsCheckboxesList[i].s2);
+      } //end-for
+
+      for(var i=0; i < defaultMovementsAmpInputFieldsList.Count; i+=1){
+        accountSettings.GetDefaultMovementAmpInputFieldsList()[i].text=defaultMovementsAmpInputFieldsList[i].s1;
+        accountSettings.GetDefaultMovementAmpInputFieldsList()[i].interactable=Convert.ToBoolean(defaultMovementsAmpInputFieldsList[i].s2);
+      } //end-for
+
+      for(var i=0; i < defaultMovementsFreqInputFieldsList.Count; i+=1){
+        accountSettings.GetDefaultMovementFreqInputFieldsList()[i].text=defaultMovementsFreqInputFieldsList[i].s1;
+        accountSettings.GetDefaultMovementFreqInputFieldsList()[i].interactable=Convert.ToBoolean(defaultMovementsFreqInputFieldsList[i].s2);
+      } //end-for
+    }
+    /***************************************/
+  }
 }

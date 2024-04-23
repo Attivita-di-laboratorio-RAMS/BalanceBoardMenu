@@ -1,39 +1,57 @@
 {
-    "_gameModeToggle": "0",
-    "_activeAnglesCheckboxesList": [
+    "gameModeToggle": "0",
+    "activeAnglesCheckboxesList": [
         "True",
         "True",
         "True"
     ],
-    "_activeAnglesInputFieldsList": [
+    "activeAnglesInputFieldsList": [
         "",
         "",
         ""
     ],
-    "_difficultySlider": "0",
-    "_visualFeedbackDropdown": "0",
-    "_defaultMovementsCheckboxesList": [
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True"
+    "difficultySlider": "0",
+    "visualFeedbackDropdown": "0",
+    "defaultMovementsCheckboxesList": [
+        {
+            "s1": "True",
+            "s2": "True"
+        },
+        {
+            "s1": "True",
+            "s2": "True"
+        },
+        {
+            "s1": "True",
+            "s2": "True"
+        }
     ],
-    "_defaultMovementsAmpInputFieldsList": [
-        "",
-        "True",
-        "",
-        "True",
-        "",
-        "True"
+    "defaultMovementsAmpInputFieldsList": [
+        {
+            "s1": "",
+            "s2": "True"
+        },
+        {
+            "s1": "",
+            "s2": "True"
+        },
+        {
+            "s1": "",
+            "s2": "True"
+        }
     ],
-    "_defaultMovementsFreqInputFieldsList": [
-        "",
-        "True",
-        "",
-        "True",
-        "",
-        "True"
+    "defaultMovementsFreqInputFieldsList": [
+        {
+            "s1": "",
+            "s2": "True"
+        },
+        {
+            "s1": "",
+            "s2": "True"
+        },
+        {
+            "s1": "",
+            "s2": "True"
+        }
     ]
 }
