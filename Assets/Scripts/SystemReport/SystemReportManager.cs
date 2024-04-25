@@ -18,12 +18,15 @@ namespace SystemReport
 
         private void Awake()
         {
-            _bodyCoordinates = new BodyCoordinates();
+            _bodyCoordinates = BodyCoordinates.getInstance();
 
             _timeStamp = DateTime.Now.ToString("ddMMyyyyHHmmss");
 
             //Creation of new file for username
-            string json = JsonConvert.SerializeObject(_bodyCoordinates);
+            string json = JsonConvert.SerializeObject(_bodyCoordinates, Formatting.None, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
 
             if (usernameInputField.text == "")
                 File.WriteAllText(FolderPath + DefaultFilename + _timeStamp + Extension, json);
@@ -35,19 +38,16 @@ namespace SystemReport
 
         private void Update()
         {
-            _bodyCoordinates.UpdateBodyCoordinates(GetFromCamera());
-
             //Serialization of BodyCoordinates in json string and in file
-            string json = "\n" + JsonConvert.SerializeObject(_bodyCoordinates);
+            string json = "\n" + JsonConvert.SerializeObject(_bodyCoordinates, Formatting.None,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
             if (usernameInputField.text == "")
                 File.AppendAllText(FolderPath + DefaultFilename + _timeStamp + Extension, json);
             else
                 File.AppendAllText(FolderPath + usernameInputField.text + _timeStamp + Extension, json);
-        }
-
-        private BodyCoordinates.KeyValue GetFromCamera()
-        {
-            return new BodyCoordinates.KeyValue(0, new float[] { 0, 0, 0 });
         }
     }
 }

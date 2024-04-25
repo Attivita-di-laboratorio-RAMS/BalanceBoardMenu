@@ -1,20 +1,22 @@
 using System;
+using SystemReport;
 using UnityEngine;
 
-public class UpdatePosition : MonoBehaviour{
+public class UpdatePosition : MonoBehaviour
+{
     [SerializeField] private Animator _avatarAnimator;
-  
-    
-    // Start is called before the first frame update
-    void Start(){
-      foreach (HumanBodyBones bone in (HumanBodyBones[]) Enum.GetValues(typeof(HumanBodyBones))){
-        print(_avatarAnimator.GetBoneTransform(bone));
-      }
-    }
 
-    // Update is called once per frame
-    void Update(){
-      //Transform t=_avatarAnimator.GetBoneTransform(HumanBodyBones.Head);
-      //print(t);
+    private void LateUpdate()
+    {
+        /*foreach (HumanBodyBones bone in (HumanBodyBones[])Enum.GetValues(typeof(HumanBodyBones)))
+        {
+            try
+            {
+                _avatarAnimator.GetBoneTransform(bone).position=BodyCoordinates.getInstance().GetBodyCoordinates();
+            }
+            catch ()
+            {
+            }
+        }*/
     }
 }

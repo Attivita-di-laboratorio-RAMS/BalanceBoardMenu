@@ -1,42 +1,59 @@
 using System;
 using System.Collections.Generic;
+using Avatar;
+using UnityEngine;
 
 namespace SystemReport
 {
     [Serializable]
-    public class BodyCoordinates : Dictionary<int, float[]>
+    public class BodyCoordinates : Dictionary<EAvatarBones, Vector3>
     {
+        private static BodyCoordinates instance = null;
+
         [Serializable]
         public class KeyValue
         {
-            public int id;
-            public float[] floats;
+            public EAvatarBones boneId;
+            public Vector3 position;
 
-            public KeyValue(int id, float[] floats)
+            public KeyValue(EAvatarBones boneId, Vector3 position)
             {
-                this.id = id;
-                this.floats = floats;
+                this.boneId = boneId;
+                this.position = position;
             }
         }
 
-        private const int BodyCoordinatesNumber = 16;
+        private readonly Vector3 _defaultCoordinates = new(0, 0, 0);
 
-        public BodyCoordinates()
+        private BodyCoordinates()
         {
-            for (int i = 0; i <= BodyCoordinatesNumber; i += 1)
+            foreach (EAvatarBones bone in (EAvatarBones[])Enum.GetValues(typeof(EAvatarBones)))
             {
-                Add(new KeyValue(i, new float[] { 0, 0, 0 }));
-            }
+                Add(new KeyValue(bone, _defaultCoordinates));
+            } //end-foreach
+        }
+
+        public static BodyCoordinates getInstance()
+        {
+            if (instance == null)
+                instance = new BodyCoordinates();
+
+            return instance;
         }
 
         public void UpdateBodyCoordinates(KeyValue keyValue)
         {
-            this[keyValue.id] = keyValue.floats;
+            this[keyValue.boneId] = keyValue.position;
+        }
+
+        public Vector3 GetBodyCoordinates(EAvatarBones boneId)
+        {
+            return this[boneId];
         }
 
         public void Add(KeyValue keyValue)
         {
-            Add(keyValue.id, keyValue.floats);
+            Add(keyValue.boneId, keyValue.position);
         }
     }
 }
