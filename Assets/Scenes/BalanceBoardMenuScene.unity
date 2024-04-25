@@ -7067,6 +7067,7 @@ GameObject:
   - component: {fileID: 1112044220}
   - component: {fileID: 1112044219}
   - component: {fileID: 1112044218}
+  - component: {fileID: 1112044222}
   m_Layer: 5
   m_Name: SystemReportPanel
   m_TagString: Untagged
@@ -7147,6 +7148,19 @@ RectTransform:
   m_AnchoredPosition: {x: -153.14532, y: 388.99878}
   m_SizeDelta: {x: 1262.4861, y: 867}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1112044222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112044217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cab2a12a70e4f28b075bcbb06b0ed1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInputField: {fileID: 2113057444}
 --- !u!1 &1135535848
 GameObject:
   m_ObjectHideFlags: 0
