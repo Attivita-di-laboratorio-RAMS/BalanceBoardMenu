@@ -14262,7 +14262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitButton: {fileID: 1096255749}
-  accountSettings: {fileID: 18946085}
   usernameInputField: {fileID: 2113057444}
   searchUsernameButton: {fileID: 1208628443}
 --- !u!1 &2015806899

@@ -10,6 +10,7 @@ namespace SystemReport
     {
         [SerializeField] private TMP_InputField usernameInputField;
         private const string FolderPath = @"Assets/UsernameSystemReport/";
+        private const string DefaultDirectory = "defaultDirectory/";
         private const string DefaultFilename = "default";
         private const string Extension = ".json";
         private string _timeStamp;
@@ -29,9 +30,25 @@ namespace SystemReport
             });
 
             if (usernameInputField.text == "")
-                File.WriteAllText(FolderPath + DefaultFilename + _timeStamp + Extension, json);
+            {
+                if (!Directory.Exists(FolderPath + DefaultDirectory))
+                {
+                    Directory.CreateDirectory(FolderPath + DefaultDirectory);
+                }
+
+                File.WriteAllText(FolderPath + DefaultDirectory + DefaultFilename + _timeStamp + Extension, json);
+            }
             else
-                File.WriteAllText(FolderPath + usernameInputField.text + _timeStamp + Extension, json);
+            {
+                if (!Directory.Exists(FolderPath + usernameInputField.text + "/"))
+                {
+                    Directory.CreateDirectory(FolderPath + usernameInputField.text + "/");
+                }
+
+                File.WriteAllText(
+                    FolderPath + usernameInputField.text + "/" + usernameInputField.text + _timeStamp + Extension,
+                    json);
+            }
 
             Time.captureFramerate = 60;
         }
@@ -45,9 +62,11 @@ namespace SystemReport
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });
             if (usernameInputField.text == "")
-                File.AppendAllText(FolderPath + DefaultFilename + _timeStamp + Extension, json);
+                File.AppendAllText(FolderPath + DefaultDirectory + DefaultFilename + _timeStamp + Extension, json);
             else
-                File.AppendAllText(FolderPath + usernameInputField.text + _timeStamp + Extension, json);
+                File.AppendAllText(
+                    FolderPath + usernameInputField.text + "/" + usernameInputField.text + _timeStamp + Extension,
+                    json);
         }
     }
 }

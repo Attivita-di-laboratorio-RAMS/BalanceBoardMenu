@@ -2,42 +2,61 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonManager : MonoBehaviour{
-  [SerializeField] private Button playButton;
-  [SerializeField] private Button stopButton;
-  [SerializeField] private Button homeButton;
-  [SerializeField] private TextMeshProUGUI statusText;
-  private bool isPlaying=false;
+public class ButtonManager : MonoBehaviour
+{
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button stopButton;
+    [SerializeField] private Button homeButton;
+    [SerializeField] private TextMeshProUGUI statusText;
+    private bool _isPlaying = false;
 
-  private void Awake(){
-    playButton.onClick.AddListener(() => {
-      if(!isPlaying)
-        ((Image)playButton.targetGraphic).sprite=Resources.Load<Sprite>("Sprites/Button/pause");
-      else
-        ((Image)playButton.targetGraphic).sprite=Resources.Load<Sprite>("Sprites/Button/play");
+    private void Awake()
+    {
+        playButton.onClick.AddListener(() =>
+        {
+            if (!_isPlaying)
+            {
+                ((Image)playButton.targetGraphic).sprite = Resources.Load<Sprite>("Sprites/Button/pause");
+                AccountSettings.AccountSettings.GetInstance().DisableSettings();
+                
+                
+            }
+            else
+            {
+                ((Image)playButton.targetGraphic).sprite = Resources.Load<Sprite>("Sprites/Button/play");
+                AccountSettings.AccountSettings.GetInstance().EnableSettings();
+                
+                
+            } //end-if
 
-      isPlaying=!isPlaying;
-      print(isPlaying ? "Play" + " has been pressed" : "Pause" + " has been pressed");
+            _isPlaying = !_isPlaying;
+            print(_isPlaying ? "Play" + " has been pressed" : "Pause" + " has been pressed");
 
-      //Eventual call to machine param=Machine.callPlay/Pause()
+            //Eventual call to machine param=Machine.callPlay/Pause()
 
-      //Eventual change in state statustText.text=param
-    });
+            //Eventual change in state statustText.text=param
+        });
 
-    stopButton.onClick.AddListener(() => {
-      print("Stop has been pressed");
+        stopButton.onClick.AddListener(() =>
+        {
+            print("Stop has been pressed");
+            AccountSettings.AccountSettings.GetInstance().EnableSettings();
 
-      //Eventual call to machine param=Machine.callStop()
+            ((Image)playButton.targetGraphic).sprite = Resources.Load<Sprite>("Sprites/Button/play");
+            _isPlaying = !_isPlaying;
 
-      //Eventual change in state statustText.text=param
-    });
+            //Eventual call to machine param=Machine.callStop()
 
-    homeButton.onClick.AddListener(() => {
-      print("Home has been pressed");
+            //Eventual change in state statustText.text=param
+        });
 
-      //Eventual call to machine param=Machine.callHome()
+        homeButton.onClick.AddListener(() =>
+        {
+            print("Home has been pressed");
 
-      //Eventual change in state statustText.text=param
-    });
-  }
+            //Eventual call to machine param=Machine.callHome()
+
+            //Eventual change in state statustText.text=param
+        });
+    }
 }

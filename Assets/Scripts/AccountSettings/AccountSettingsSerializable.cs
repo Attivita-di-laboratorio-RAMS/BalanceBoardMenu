@@ -70,7 +70,10 @@ namespace AccountSettings{
     /***************************************/
     //Methods
     /***************************************/
-    public void FillAccountSettings(AccountSettings accountSettings){
+    public void FillAccountSettings()
+    {
+      var accountSettings = AccountSettings.GetInstance();
+      
       accountSettings.GetGameModeToggle().value=float.Parse(gameModeToggle);
 
       for(var i=0; i < activeAnglesCheckboxesList.Count; i+=1)
