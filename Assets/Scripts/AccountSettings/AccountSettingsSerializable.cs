@@ -11,7 +11,7 @@ namespace AccountSettings{
   public class AccountSettingsSerializable{
     /******************************************************/
     // CLASS CustomString IS A NESTED DUMMY CLASS
-    // USED ONLY TO SERIALIZE FIELD WITH MULTIPLE STRINGS
+    // USED ONLY TO SERIALIZE FIELDS WITH MULTIPLE STRINGS
     /******************************************************/
     [Serializable]
     public class CustomString{

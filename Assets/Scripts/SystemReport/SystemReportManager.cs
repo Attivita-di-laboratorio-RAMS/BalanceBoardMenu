@@ -19,7 +19,7 @@ namespace SystemReport
 
         private void Awake()
         {
-            _bodyCoordinates = BodyCoordinates.getInstance();
+            _bodyCoordinates = BodyCoordinates.GetInstance();
 
             _timeStamp = DateTime.Now.ToString("ddMMyyyyHHmmss");
 

@@ -5933,6 +5933,7 @@ MonoBehaviour:
   _recalibrateButton: {fileID: 938488538}
   _avatar: {fileID: 0}
   _plane: {fileID: 1913102192}
+  _rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &938488538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8786,7 +8787,7 @@ MonoBehaviour:
   onToggleOff:
     m_PersistentCalls:
       m_Calls: []
-  _rectTransform: {fileID: 1584278996}
+  rectTransform: {fileID: 1584278996}
 --- !u!114 &1277844863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8826,7 +8827,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 124913350}
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 124913349}
@@ -12019,8 +12020,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b57b9c2e3280a4095710ed89ddd493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1705104215}
-  _sliderText: {fileID: 1540569682}
+  slider: {fileID: 1705104215}
+  sliderText: {fileID: 1540569682}
 --- !u!1 &1728755334
 GameObject:
   m_ObjectHideFlags: 0
