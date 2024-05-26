@@ -1,29 +1,33 @@
-namespace Avatar{
-  /******************************************************/
-  // ENUM EAvatarBones ENUMERATES ALL THE ANATOMICAL
-  // PARTS CAPTURED BY THE CAMERAS, EACH ONE HAS AN ID
-  /******************************************************/
-  public enum EAvatarBones{
-    /***************************************/
-    //Values
-    /***************************************/
-    Nose=0,
-    LeftEye=1,
-    RightEye=2,
-    LeftEar=3,
-    RightEar=4,
-    LeftShoulder=5,
-    RightShoulder=6,
-    LeftElbow=7,
-    RightElbow=8,
-    LeftWrist=9,
-    RightWrist=10,
-    LeftHip=11,
-    RightHip=12,
-    LeftKnee=13,
-    RightKnee=14,
-    LeftAnkle=15,
-    RightAnkle=16
-    /***************************************/
-  }
+namespace Avatar
+{
+    /******************************************************/
+    // ENUM EAvatarBones ENUMERATES ALL THE ANATOMICAL
+    // PARTS CAPTURED BY THE CAMERAS, EACH ONE HAS AN ID
+    /******************************************************/
+    public enum EAvatarBones
+    {
+        /***************************************/
+        //Values
+        /***************************************/
+        CenterOfMass = 0,
+        Nose = 1,
+        LeftEye = 2,
+        RightEye = 3,
+        LeftEar = 4,
+        RightEar = 5,
+        LeftShoulder = 6,
+        RightShoulder = 7,
+        LeftElbow = 8,
+        RightElbow = 9,
+        LeftWrist = 10,
+        RightWrist = 11,
+        LeftHip = 12,
+        RightHip = 13,
+        LeftKnee = 14,
+        RightKnee = 15,
+        LeftAnkle = 16,
+
+        RightAnkle = 17
+        /***************************************/
+    }
 }
