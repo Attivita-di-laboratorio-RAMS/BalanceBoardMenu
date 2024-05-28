@@ -8,12 +8,14 @@ namespace AccountSettings{
     //Attributes
     /***************************************/
     private AccountSettingsSerializable _accountSettingsSerializable;
+
     /***************************************/
     //Constructor
     /***************************************/
     public ConcreteMemento(AccountSettings accountSettings){
       _accountSettingsSerializable=new AccountSettingsSerializable(accountSettings);
     }
+
     /***************************************/
     //Methods
     /***************************************/

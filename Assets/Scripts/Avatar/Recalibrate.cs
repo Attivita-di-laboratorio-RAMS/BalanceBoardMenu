@@ -5,7 +5,7 @@ public class Recalibrate : MonoBehaviour{
   [SerializeField] private Button _recalibrateButton;
   [SerializeField] private Transform _avatar;
   [SerializeField] private Transform _plane;
-  private Quaternion _rotation=new Quaternion(0, 0, 0, 1);
+  private Quaternion _rotation=new(0, 0, 0, 1);
 
   // private void Awake(){
   //   _recalibrateButton.onClick.AddListener(() => {

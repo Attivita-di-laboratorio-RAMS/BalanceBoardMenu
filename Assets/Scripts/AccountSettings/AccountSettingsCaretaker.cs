@@ -11,13 +11,16 @@ namespace AccountSettings{
     //Attributes
     /***************************************/
     private List<IMemento> _mementos=new();
+
     private AccountSettings _accountSettings=null;
+
     /***************************************/
     //Constructor
     /***************************************/
     public AccountSettingsCaretaker(AccountSettings accountSettings){
       _accountSettings=accountSettings;
     }
+
     /***************************************/
     //Methods
     /***************************************/

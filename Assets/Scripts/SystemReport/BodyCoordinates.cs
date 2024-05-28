@@ -22,7 +22,9 @@ namespace SystemReport{
       //Attributes
       /***************************************/
       public EAvatarBones boneId;
+
       public Vector3 position;
+
       /***************************************/
       //Constructor
       /***************************************/
@@ -32,17 +34,21 @@ namespace SystemReport{
       }
       /***************************************/
     }
+
     /***************************************/
     //Attributes
     /***************************************/
     private static BodyCoordinates _instance=null;
+
     private readonly Vector3 _defaultCoordinates=new(0, 0, 0);
+
     /***************************************/
     //Constructor
     /***************************************/
     private BodyCoordinates(){
       foreach(var bone in(EAvatarBones[])Enum.GetValues(typeof(EAvatarBones))) Add(new KeyValue(bone, _defaultCoordinates)); //end-foreach
     }
+
     /***************************************/
     //Getter/Setter
     /***************************************/
@@ -52,6 +58,7 @@ namespace SystemReport{
 
       return _instance;
     }
+
     /***************************************/
     //Methods
     /***************************************/

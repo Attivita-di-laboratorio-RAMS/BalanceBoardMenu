@@ -13,7 +13,9 @@ namespace SliderPercentage{
     //SerializedFields
     /***************************************/
     [SerializeField] private Slider slider;
+
     [SerializeField] private TextMeshProUGUI sliderText;
+
     /***************************************/
     //Methods
     /***************************************/

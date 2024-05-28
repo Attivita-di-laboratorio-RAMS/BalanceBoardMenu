@@ -9,16 +9,19 @@ namespace Tab{
     //Attributes to implement
     /***************************************/
     protected Leaf Leaf;
+
     /***************************************/
     //Setter
     /***************************************/
     public void SetContext(Leaf leaf){
       Leaf=leaf;
     }
+
     /***************************************/
     //Methods to implement
     /***************************************/
     public abstract void Close();
+
     public abstract void Open();
     /***************************************/
   }

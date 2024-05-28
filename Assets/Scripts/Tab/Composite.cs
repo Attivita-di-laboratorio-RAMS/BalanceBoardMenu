@@ -8,7 +8,8 @@ namespace Tab{
     /***************************************/
     //Attributes
     /***************************************/
-    private readonly List<IContext> _children=new ();
+    private readonly List<IContext> _children=new();
+
     /***************************************/
     //Methods
     /***************************************/
@@ -28,7 +29,7 @@ namespace Tab{
       foreach(var context in _children){
         context.TransitionTo(new ClosedState());
         context.CloseTab();
-      }//end-foreach
+      } //end-foreach
     }
     /***************************************/
   }

@@ -15,14 +15,18 @@ namespace AccountSettings{
     /***************************************/
     [SerializeField] private Button exitButton;
     [SerializeField] private TMP_InputField usernameInputField;
+
     [SerializeField] private Button searchUsernameButton;
+
     /***************************************/
     //Attributes
     /***************************************/
     private const string FolderPath=@"Assets/UsernameSettings/";
     private const string DefaultFilename="default";
     private const string Extension=".json";
+
     private AccountSettingsCaretaker _accountSettingsCaretaker;
+
     /***************************************/
     //Methods
     /***************************************/

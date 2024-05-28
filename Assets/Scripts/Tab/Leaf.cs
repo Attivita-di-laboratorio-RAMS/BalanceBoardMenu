@@ -12,11 +12,14 @@ namespace Tab{
     /***************************************/
     [SerializeField] private Button button;
     [SerializeField] private GameObject panel;
+
     [SerializeField] private GameObject lineHider;
+
     /***************************************/
     //Attributes
     /***************************************/
-    private State _state=null;  //Instance of the current state the leaf is in
+    private State _state=null; //Instance of the current state the leaf is in
+
     /***************************************/
     //Constructor
     /***************************************/
@@ -26,6 +29,7 @@ namespace Tab{
       this.lineHider=lineHider;
       TransitionTo(new ClosedState());
     }
+
     /***************************************/
     //Getter/Setter
     /***************************************/
@@ -40,6 +44,7 @@ namespace Tab{
     public GameObject GetLineHider(){
       return lineHider;
     }
+
     /***************************************/
     //Methods
     /***************************************/
@@ -48,7 +53,7 @@ namespace Tab{
       _state=state;
       _state.SetContext(this);
     }
-    
+
     public void OpenTab(IContext context){
       _state.Open();
     }

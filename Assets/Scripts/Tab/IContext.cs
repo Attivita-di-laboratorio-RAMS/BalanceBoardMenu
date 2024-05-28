@@ -9,6 +9,7 @@ namespace Tab{
     /***************************************/
     public void TransitionTo(State state);
     public void OpenTab(IContext context);
+
     public void CloseTab();
     /***************************************/
   }

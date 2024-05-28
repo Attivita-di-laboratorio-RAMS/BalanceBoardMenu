@@ -2,21 +2,19 @@ using System;
 using SystemReport;
 using UnityEngine;
 
-public class UpdatePosition : MonoBehaviour
-{
-    [SerializeField] private Animator _avatarAnimator;
+public class UpdatePosition : MonoBehaviour{
+  [SerializeField] private Animator _avatarAnimator;
 
-    private void LateUpdate()
+  private void LateUpdate(){
+    /*foreach (HumanBodyBones bone in (HumanBodyBones[])Enum.GetValues(typeof(HumanBodyBones)))
     {
-        /*foreach (HumanBodyBones bone in (HumanBodyBones[])Enum.GetValues(typeof(HumanBodyBones)))
+        try
         {
-            try
-            {
-                _avatarAnimator.GetBoneTransform(bone).position=BodyCoordinates.getInstance().GetBodyCoordinates();
-            }
-            catch ()
-            {
-            }
-        }*/
-    }
+            _avatarAnimator.GetBoneTransform(bone).position=BodyCoordinates.getInstance().GetBodyCoordinates();
+        }
+        catch ()
+        {
+        }
+    }*/
+  }
 }
