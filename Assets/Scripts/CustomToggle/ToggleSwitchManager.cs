@@ -32,6 +32,7 @@ namespace CustomToggle
         /**********************************************************/
         //Attributes
         /**********************************************************/
+        private static ToggleSwitchManager _instance = null;
         public bool CurrentValue { get; private set; }
         private bool _previousValue;
         private Slider _slider;
@@ -44,6 +45,12 @@ namespace CustomToggle
         /**********************************************************/
         //Initializers
         /**********************************************************/
+
+        public static ToggleSwitchManager GetInstance()
+        {
+            return _instance;
+        }
+
         private void OnValidate()
         {
             SetupToggleComponents();
@@ -53,6 +60,8 @@ namespace CustomToggle
 
         private void Awake()
         {
+            _instance = this;
+
             SetupSliderComponent();
         }
 

@@ -16,9 +16,8 @@ namespace GameMode
 
         [SerializeField] private Slider slider;
 
-        [SerializeField] private ToggleSwitchManager gameModeToggle;
 
-        private void Awake()
+        private void Start()
         {
             for (int i = 0; i < platformActiveAnglesCheckboxes.Length; i++)
             {
@@ -26,7 +25,7 @@ namespace GameMode
                 platformActiveAnglesCheckboxes[i].onValueChanged.AddListener((isOn) =>
                 {
                     //ToggleSwitch logic is reversed, toggled is false and untoggled is true;
-                    bool isActive = !gameModeToggle.CurrentValue;
+                    bool isActive = !ToggleSwitchManager.GetInstance().CurrentValue;
 
                     //If checkbox isOn activeAngleInput is interactable depending on gameMode
                     //If checkbox !isOn activeAngleInput is NOT interactable independently whether the gameMode is Active or Passive
@@ -42,7 +41,7 @@ namespace GameMode
                 });
             } //end-for
 
-            gameModeToggle.onToggle.AddListener((isActive) =>
+            ToggleSwitchManager.GetInstance().onToggle.AddListener((isActive) =>
             {
                 /* isActive can be either:
                  * True: Active mode

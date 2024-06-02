@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -105,6 +107,79 @@ namespace AccountSettings
             _instance = this;
         }
 
+        public void OnEnable()
+        {
+            for (int i = 0; i < activeAnglesInputFieldsList.Count - 1; i += 1)
+            {
+                int currentInputIndex = i;
+                activeAnglesInputFieldsList[i].onValueChanged.AddListener((input =>
+                {
+                    try
+                    {
+                        if (Int32.Parse(input) > 5)
+                        {
+                            activeAnglesInputFieldsList[currentInputIndex].text = "5";
+                        }
+                        else if (Int32.Parse(input) < 0)
+                        {
+                            activeAnglesInputFieldsList[currentInputIndex].text = "0";
+                        }
+                    }
+                    catch (FormatException e)
+                    {
+                        activeAnglesInputFieldsList[currentInputIndex].text = input;
+                    }
+                }));
+
+                activeAnglesInputFieldsList.Last().onValueChanged.AddListener((input =>
+                {
+                    try
+                    {
+                        if (Int32.Parse(input) > 50)
+                        {
+                            activeAnglesInputFieldsList.Last().text = "50";
+                        }
+                        else if (Int32.Parse(input) < 0)
+                        {
+                            activeAnglesInputFieldsList.Last().text = "0";
+                        }
+                    }
+                    catch (FormatException e)
+                    {
+                        activeAnglesInputFieldsList.Last().text = input;
+                    }
+                }));
+            }
+
+
+            foreach (var amp in defaultMovementsAmpInputFieldsList)
+            {
+                amp.onValueChanged.AddListener(input =>
+                {
+                    CheckInput((defaultMovementsAmpInputFieldsList.Concat(defaultMovementsFreqInputFieldsList)
+                        .ToList()).Concat(defaultMovementsOffsetInputFieldsList).ToList());
+                });
+            }
+
+            foreach (var freq in defaultMovementsFreqInputFieldsList)
+            {
+                freq.onValueChanged.AddListener(input =>
+                {
+                    CheckInput((defaultMovementsAmpInputFieldsList.Concat(defaultMovementsFreqInputFieldsList)
+                        .ToList()).Concat(defaultMovementsOffsetInputFieldsList).ToList());
+                });
+            }
+
+            foreach (var offset in defaultMovementsOffsetInputFieldsList)
+            {
+                offset.onValueChanged.AddListener(input =>
+                {
+                    CheckInput((defaultMovementsAmpInputFieldsList.Concat(defaultMovementsFreqInputFieldsList)
+                        .ToList()).Concat(defaultMovementsOffsetInputFieldsList).ToList());
+                });
+            }
+        }
+
         public void DisableSettings()
         {
             gameModeToggle.interactable = false;
@@ -134,7 +209,7 @@ namespace AccountSettings
                 checkbox.onValueChanged.Invoke(checkbox.isOn); //end-foreach
             }
 
-            if(gameModeToggle.value==0)
+            if (gameModeToggle.value == 0)
                 difficultySlider.interactable = true;
 
             visualFeedbackDropdown.interactable = true;
@@ -147,6 +222,15 @@ namespace AccountSettings
                     checkbox.interactable = true; //end-foreach
                     checkbox.onValueChanged.Invoke(checkbox.isOn); //end-foreach
                 }
+        }
+
+
+        private void CheckInput(List<TMP_InputField> inputFields)
+        {
+            foreach (var input in inputFields)
+            {
+                /**/
+            }
         }
         /***************************************/
     }
