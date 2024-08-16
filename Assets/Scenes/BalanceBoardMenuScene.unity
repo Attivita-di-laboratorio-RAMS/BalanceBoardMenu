@@ -130,12 +130,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 612126056194795136, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 641813228019770276, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1014241663287343759, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2901820786531954818, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.8569336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953467142006705496, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3254283509328658452, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998402550684976817, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540528227441004892, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
@@ -149,6 +169,10 @@ PrefabInstance:
     - target: {fileID: 4540528227441004892, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010453192094570202, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.8569336
       objectReference: {fileID: 0}
     - target: {fileID: 5328208171723821604, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
       propertyPath: m_RootOrder
@@ -194,9 +218,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316767706396164755, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.8569336
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298683562182890354, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7462511402012845143, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613800266421593211, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.8569336
       objectReference: {fileID: 0}
     - target: {fileID: 8939161811910142474, guid: 1d7b7e78d129c2746a82a87686519b67, type: 3}
       propertyPath: m_Name
