@@ -1,5 +1,7 @@
 # BalanceBoardMenu
 
+This project is the graphical user interface for the Balance Platform System, a robotic rehabilitation device used in exergame-based physical therapy. It was designed and developed in C# and Unity, applying software design patterns for UI logic and data persistence. The project was carried out as a two-person team, under the supervision of two industry co-supervisors.
+
 Below a small gallery showing all the features:
 
 ## Gallery
